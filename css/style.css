@@ -13,7 +13,7 @@
 
 html {
   color: #222;
-  font-size: 1em;
+  font-size: 100%; /* Use percentage for better scalability */
   line-height: 1.4;
 }
 
@@ -170,6 +170,7 @@ body, h1, h2, h3, h4, h5, h6, p, ul {
 /* Basic styles */
 body {
   font-family: Arial, sans-serif;
+  font-size: 1rem; /* Use rem for better scalability */
   line-height: 1.6;
 }
 
@@ -184,9 +185,9 @@ p {
 }
 
 .banner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .banner img {
@@ -213,6 +214,7 @@ main {
   flex-grow: 4;
   flex-basis: auto;
   margin-left: 30px;
+  position: relative; /* Added to position pseudo-element */
 }
 
 .content::before {
