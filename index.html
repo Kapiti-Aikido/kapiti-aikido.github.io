@@ -35,9 +35,44 @@
     "image": "https://yourdomain.example/img/kapiti-aikido.jpg"
   }
   </script>
+  <style>
+    .site-notice {
+      background: #fff3cd;
+      color: #664d03;
+      border-bottom: 1px solid #ffeeba;
+      padding: 12px 16px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-weight: 600;
+    }
+    .site-notice .close-btn {
+      position: absolute;
+      right: 12px;
+      top: 8px;
+      background: transparent;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    body.has-site-notice { padding-top: 56px; }
+    @media (max-width:600px){ body.has-site-notice{padding-top:70px;} .site-notice{font-size:14px;} }
+  </style>
+
 </head>
 
-<body>
+<body class="has-site-notice">
+
+  <div class="site-notice" role="status" aria-live="polite">
+    Kapiti Aikido is on Christmas break and will be back on 20 January 2026.
+    <button class="close-btn" aria-label="Dismiss notification">&times;</button>
+  </div>
 
   <!-- Add your site or application content here -->
   <header role="banner">
@@ -112,6 +147,16 @@
     menuToggle.addEventListener('click', () => {
       menuWrapper.classList.toggle('show-menu');
     });
+
+    const siteNotice = document.querySelector('.site-notice');
+    const closeBtn = siteNotice?.querySelector('.close-btn');
+
+    function dismissSiteNotice(){
+      siteNotice?.remove();
+      document.body.classList.remove('has-site-notice');
+    }
+
+    closeBtn?.addEventListener('click', dismissSiteNotice);
   </script>
 </body>
 
